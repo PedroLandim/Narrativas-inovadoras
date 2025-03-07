@@ -1,0 +1,186 @@
+:root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  --primary-color: #ff4d4d;  /* Vermelho de alerta */
+  --secondary-color: #ffc107; /* Amarelo para contrastar */
+  --dark-bg: #1a1a1a; /* Fundo escuro */
+  --light-text: rgba(255, 255, 255, 0.9);
+  --danger-color: #ff0000; /* Vermelho mais intenso */
+  --border-radius: 8px;
+
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+  width: 80%;
+  max-width: 900px;
+  padding: 50px 20px;
+  text-align: center; /* Garante que tudo dentro da seção fique centralizado */
+  margin: 0 auto;
+}
+
+/* ====== Reset e estilos gerais ====== */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 2em;
+  color: var(--secondary-color);
+}
+
+p {
+  font-size: 1.1em;
+  color: var(--light-text);
+  max-width: 800px;
+  line-height: 1.8;
+}
+
+/* ====== Links ====== */
+a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* ====== Botões ====== */
+button {
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--danger-color);
+}
+
+/* ====== Estilização do Header ====== */
+header {
+  background: url('/bg-maceio.jpg') center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+}
+
+/* ====== Navbar ====== */
+nav {
+  background-color: #000;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav li {
+  font-size: 1.1em;
+}
+
+nav a {
+  color: var(--light-text);
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* ====== Seções ====== */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.alert-box {
+  background: var(--danger-color);
+  color: #fff;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+}
+
+
+/* ====== Animação para revelar conteúdo ====== */
+.extra-content {
+  background: rgba(255, 77, 77, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--danger-color);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Botão aprimorado ====== */
+button {
+  background: var(--primary-color);
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--danger-color);
+  transform: scale(1.05);
+}
