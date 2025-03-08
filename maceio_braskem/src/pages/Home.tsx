@@ -1,46 +1,36 @@
-import { useState } from "react";
-import Navbar from "../components/Navbar";
+import { useState, useEffect } from "react";
+
+import Mineradora from "../components/Mineradora";
+import Background from "../components/background";
+import Camada1 from "../components/camada1";
+import Camada2 from "../components/camada2";
+import Camada3 from "../components/camada3";
+import Camada4 from "../components/camada4";
+import Camada5 from "../components/camada5";
+import Camada6 from "../components/camada6";
 
 export default function Home() {
-  const [showMore, setShowMore] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div>
-      <Navbar />
-      <header>
-        <h1>O impacto da Braskem em Maceió</h1>
-      </header>
-      <section>
-        <div className="alert-box">
-          <p>🚨 Emergência ambiental! A cidade está afundando devido às atividades da Braskem.</p>
-        </div>
-        <h2>O que está acontecendo?</h2>
-        <p>
-          A mineração irresponsável de sal-gema pela Braskem está causando o colapso do solo em vários bairros de Maceió, 
-          forçando milhares de famílias a deixarem suas casas.
-        </p>
-
-        {showMore && (
-          <div className="extra-content">
-            <h3>⚠️ Áreas afetadas</h3>
-            <p>
-              Os bairros Pinheiro, Mutange, Bebedouro e Bom Parto estão entre os mais impactados, com rachaduras e afundamentos visíveis.
-            </p>
-            <h3>📉 Impacto social e econômico</h3>
-            <p>
-              Milhares de moradores foram evacuados, levando a uma crise habitacional e econômica, além de impactos psicológicos devastadores.
-            </p>
-            <h3>🚧 O que está sendo feito?</h3>
-            <p>
-              A empresa foi responsabilizada e obrigada a indenizar os moradores, mas muitos ainda aguardam justiça.
-            </p>
-          </div>
-        )}
-
-        <button onClick={() => setShowMore(!showMore)}>
-          {showMore ? "Ver menos" : "Saiba mais"}
-        </button>
-      </section>
+      <Background />
+      <Mineradora scrollPosition={scrollPosition} pageHeight={document.documentElement.scrollHeight} />
+      <Camada1 scrollPosition={scrollPosition} />
+      <Camada2 scrollPosition={scrollPosition} />
+      <Camada3 scrollPosition={scrollPosition} />
+      <Camada4 scrollPosition={scrollPosition} />
+      <Camada5 scrollPosition={scrollPosition} />
+      <Camada6 scrollPosition={scrollPosition} />
     </div>
   );
 }
